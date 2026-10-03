@@ -1,0 +1,1 @@
+CREATE SCHEMA error_free_text;
