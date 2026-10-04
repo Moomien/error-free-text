@@ -2,7 +2,7 @@
 
 Тестовое задание. Сервис принимает текст, исправляет опечатки через Яндекс Спеллер и отдаёт результат по id задачи.
 
-Стек: Java 21, Spring Boot 3.5, Gradle, PostgreSQL 16, Flyway, Docker.
+Стек: Java 21, Spring Boot 3.5, Gradle, PostgreSQL 16, Flyway, Docker, Testcontainers.
 
 ## Запуск
 
