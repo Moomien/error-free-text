@@ -36,6 +36,14 @@ public class TaskProcessingScheduler {
         }
         log.info("Processing {} tasks", ids.size());
 
-        ids.forEach(processor::process);
+        ids.forEach(this::processSafely);
+    }
+
+    private void processSafely(UUID taskId) {
+        try {
+            processor.process(taskId);
+        } catch (RuntimeException e) {
+            log.error("Task {} processing aborted", taskId, e);
+        }
     }
 }
