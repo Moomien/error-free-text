@@ -10,9 +10,10 @@ public record TaskResponse(
         String correctedText,
         String errorMessage){
     public static TaskResponse from(Task task) {
-        return new TaskResponse(
-                task.getStatus(),
-                task.getCorrectedText(),
-                task.getErrorMessage());
+        return switch (task.getStatus()) {
+            case DONE -> new TaskResponse(task.getStatus(), task.getCorrectedText(), null);
+            case ERROR -> new TaskResponse(task.getStatus(), null, task.getErrorMessage());
+            case NEW, IN_PROGRESS -> new TaskResponse(task.getStatus(), null, null);
+        };
     }
 }
