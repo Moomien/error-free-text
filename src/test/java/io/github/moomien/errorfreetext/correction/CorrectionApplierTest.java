@@ -6,6 +6,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class CorrectionApplierTest {
@@ -82,5 +83,19 @@ class CorrectionApplierTest {
     void nullTextThrows() {
         assertThatThrownBy(() -> applier.apply(null, List.of()))
                 .isInstanceOf(NullPointerException.class);
+    }
+
+    @Test
+    void appliesAllErrors () {
+        String text = "Превет как дила. Превет как дила.";
+        List<SpellError> errors = List.of(
+                new SpellError(0, 6, List.of("Привет", "Превет", "Превед")),
+                new SpellError(11, 4, List.of("дела", "дила")),
+                new SpellError(17, 6, List.of("Привет", "Превет", "Превед")),
+                new SpellError(28, 4, List.of("дела", "дила"))
+        );
+
+        String result = new CorrectionApplier().apply(text, errors);
+        assertEquals("Привет как дела. Привет как дела.", result);
     }
 }

@@ -24,5 +24,11 @@ server:
 
 speller:
   base-url: https://speller.yandex.net/services/spellservice.json
+#  base-url: https://speller.invalid
   connect-timeout: 5s
   read-timeout: 15s
+
+app:
+  scheduler:
+    fixed-delay-ms: 5000
+    batch-size: 10

@@ -57,6 +57,6 @@ public class YandexSpellerClient implements SpellerClient {
     }
 
     private static SpellError toSpellError(YandexSpellError e) {
-        return new SpellError(e.post(), e.len(), e.s() == null ? List.of() : e.s());
+        return new SpellError(e.pos(), e.len(), e.s() == null ? List.of() : e.s());
     }
 }
