@@ -14,7 +14,8 @@ class SpellOptionsResolverTest {
 
     @Test
     void digitsEnableIgnoreDigits() {
-        assertThat(resolver.resolve("у меня 3 кота")).isEqualTo(2);
+        assertThat(resolver.resolve("у меня 3 кота"))
+                .isEqualTo(2);
     }
 
     @Test
@@ -25,12 +26,14 @@ class SpellOptionsResolverTest {
 
     @Test
     void digitsAndUrlEnableBoth() {
-        assertThat(resolver.resolve("2 ссылки http://a.ru")).isEqualTo(6);
+        assertThat(resolver.resolve("2 ссылки http://a.ru"))
+                .isEqualTo(6);
     }
 
     @Test
     void digitsInsideUrlIsDigits() {
-        assertThat(resolver.resolve("http://site1.ru")).isEqualTo(6);
+        assertThat(resolver.resolve("http://site1.ru"))
+                .isEqualTo(6);
     }
 
     @Test
