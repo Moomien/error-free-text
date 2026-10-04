@@ -46,7 +46,12 @@ curl -i http://localhost:8080/tasks{id]
 
 Ошибки все в одном формате:
 ```
-{"errorMessage": "Task with id: ... not found", "errorCode": 40401, "timestamp":"2026-10-04T15:24:22.461", "path": "/tasks/..."}
+{
+ "errorMessage": "Task with id: ... not found",
+ "errorCode": 40401,
+ "timestamp":"2026-10-04T15:24:22.461",
+ "path": "/tasks/..."
+}
 ```
 
 | errorCode | когда |
