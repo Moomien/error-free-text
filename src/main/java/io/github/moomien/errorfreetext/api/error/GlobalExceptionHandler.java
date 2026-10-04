@@ -79,7 +79,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleUnexpected(
             Exception ex,
             HttpServletRequest request) {
-        log.error("Unexpected error on {}", request.getRequestURI());
+        log.error("Unexpected error on {}", request.getRequestURI(), ex);
         return build(ErrorCode.INTERNAL_ERROR, "Internal server error", request);
     }
 

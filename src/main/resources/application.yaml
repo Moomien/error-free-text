@@ -16,7 +16,7 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: true
-    schemas: public
+    schemas: error_free_text
 
 server:
   port: 8080

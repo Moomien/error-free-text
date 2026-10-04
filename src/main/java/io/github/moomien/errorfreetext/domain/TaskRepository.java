@@ -11,7 +11,7 @@ import java.util.UUID;
 
 public interface TaskRepository extends JpaRepository<Task, UUID> {
     @Query(value = """
-            SELECT * FROM tasks
+            SELECT * FROM error_free_text.tasks
             WHERE status = 'NEW'
             ORDER BY created_at
             LIMIT :limit
@@ -21,7 +21,11 @@ public interface TaskRepository extends JpaRepository<Task, UUID> {
 
     @Modifying
     @Transactional
-    @Query("update Task t set t.status = :newStatus where t.status = :currentStatus")
+    @Query("""
+            update Task t
+            set t.status = :newStatus, t.updatedAt = CURRENT_TIMESTAMP
+            where t.status = :currentStatus
+            """)
     int updateStatus(@Param("currentStatus") TaskStatus currentStatus,
                      @Param("newStatus") TaskStatus newStatus);
 }

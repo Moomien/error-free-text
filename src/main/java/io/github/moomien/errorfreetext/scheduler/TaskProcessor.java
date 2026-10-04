@@ -1,6 +1,5 @@
 package io.github.moomien.errorfreetext.scheduler;
 
-import io.github.moomien.errorfreetext.api.TaskResponse;
 import io.github.moomien.errorfreetext.correction.CorrectionApplier;
 import io.github.moomien.errorfreetext.correction.SpellError;
 import io.github.moomien.errorfreetext.correction.SpellOptionsResolver;
